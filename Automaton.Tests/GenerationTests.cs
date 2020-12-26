@@ -11,9 +11,15 @@ namespace Automaton.Tests
       var generation = new Generations(cells, rule);
       Assert.Equal("   X   ", ConsoleRenderer.NeighbourHoodToString(generation.NeighbourHood));
 
-      var actualNextGen = generation.NextGen();
+      generation.UpdateGeneration();
+      var actualNextGen = generation.NeighbourHood;
 
       Assert.Equal("XX   XX", ConsoleRenderer.NeighbourHoodToString(actualNextGen));
+    }
+    [Fact]
+    public void CanReproduceRuleTwoPattern()
+    {
+
     }
   }
 }
