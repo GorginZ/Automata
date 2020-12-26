@@ -10,7 +10,8 @@ namespace Automaton
           var cells = new int[]{0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0};
           var generation = new Generations(cells, rules);
           var simulation = new Simulation();
-          simulation.Run(new ConsoleRenderer(), generation);
+          var controller = new ConsoleController();
+          simulation.Run(new ConsoleRenderer(), generation, controller);
         }
     }
 }

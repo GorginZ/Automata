@@ -2,8 +2,8 @@ namespace Automaton
 {
   public class Generations
   {
-    public int[] NeighbourHood;
-    private IRules _rules;
+    public int[] NeighbourHood { get; private set; }
+    private readonly IRules _rules;
     public Generations(int[] cells, IRules rules)
     {
       NeighbourHood = cells;
