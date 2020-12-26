@@ -14,6 +14,8 @@ namespace Automaton.Tests
       var actualNextGen = generation.NextGen();
 
       Assert.Equal(expectedNextGen, actualNextGen);
+      // Assert.Equal(expectedNextGen[5], actualNextGen[5]);
+      Assert.Equal(expectedNextGen[6], actualNextGen[6]);
     }
   }
 }

@@ -12,11 +12,12 @@ namespace Automaton
     public int[] NextGen()
     {
       var nextGeneration = new int[NeighbourHood.GetLength(0)];
-      for (int i = 1; i < NeighbourHood.GetLength(0) - 1; i++)
+      for (int i = 0; i < NeighbourHood.GetLength(0); i++)
       {
-        int left = NeighbourHood[i - 1];
-        int self = NeighbourHood[i];
-        int right = NeighbourHood[i + 1];
+        var left = i == 0 ? (NeighbourHood[NeighbourHood.GetLength(0) - 1]) : NeighbourHood[i - 1];
+        var self = NeighbourHood[i];
+        var right = i == (NeighbourHood[(NeighbourHood.GetLength(0) - 1)]) ? NeighbourHood[0] : NeighbourHood[i + 1];
+
         nextGeneration[i] = _rules.CellValueForNextGen(left, self, right);
       }
       return nextGeneration;
