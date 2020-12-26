@@ -16,7 +16,7 @@ namespace Automaton
       {
         var left = i == 0 ? (NeighbourHood[NeighbourHood.GetLength(0) - 1]) : NeighbourHood[i - 1];
         var self = NeighbourHood[i];
-        var right = i == (NeighbourHood[(NeighbourHood.GetLength(0) - 1)]) ? NeighbourHood[0] : NeighbourHood[i + 1];
+        var right = i == (NeighbourHood.GetLength(0) - 1) ? NeighbourHood[0] : NeighbourHood[i + 1];
 
         nextGeneration[i] = _rules.CellValueForNextGen(left, self, right);
       }

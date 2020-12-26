@@ -7,15 +7,16 @@ namespace Automaton.Tests
     public void ShouldAppplyRuleOneRules()
     {
       var rule = new RuleOne();
-      var cells = new int[]{0,0,0,1,0,0,0};
+      var cells = new int[] { 0, 0, 0, 1, 0, 0, 0 };
       var generation = new Generations(cells, rule);
-      
-      var expectedNextGen = new int[]{1,1,0,0,0,1,1};
+      Assert.Equal("   X   ", ConsoleRenderer.NeighbourHoodToString(generation.NeighbourHood));
+
+      // Assert.Equal(7, ConsoleRenderer.NeighbourHoodToString(generation.NeighbourHood).Length);
       var actualNextGen = generation.NextGen();
 
-      Assert.Equal(expectedNextGen, actualNextGen);
-      // Assert.Equal(expectedNextGen[5], actualNextGen[5]);
-      Assert.Equal(expectedNextGen[6], actualNextGen[6]);
+      //initial "   X   "
+      // Assert.Equal("XX   XX", ConsoleRenderer.NeighbourHoodToString(actualNextGen));
     }
+
   }
 }
