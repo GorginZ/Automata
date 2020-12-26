@@ -11,13 +11,13 @@ namespace Automaton
     }
     public int[] NextGen()
     {
-      var nextGeneration = int[NeighbourHood.GetLength(0)];
+      var nextGeneration = new int[NeighbourHood.GetLength(0)];
       for (int i = 1; i < NeighbourHood.GetLength(0) - 1; i++)
       {
         int left = NeighbourHood[i - 1];
         int self = NeighbourHood[i];
         int right = NeighbourHood[i + 1];
-        nextGeneration[i] = _rules.GetNextGen(left, self, right);
+        nextGeneration[i] = _rules.CellValueForNextGen(left, self, right);
       }
       return nextGeneration;
     }

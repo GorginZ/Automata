@@ -2,7 +2,7 @@ namespace Automaton
 {
   public class RuleOne : IRules
   {
-    public int CellShouldBeMadeOnNextIteration(int left, int self, int right)
+    public int CellValueForNextGen(int left, int self, int right)
     {
       if (!(left == 1 || self == 1 || right == 1))
       {
