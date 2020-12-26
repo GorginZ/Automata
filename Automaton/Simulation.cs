@@ -7,6 +7,7 @@ namespace Automaton
       while (true)
       {
         renderer.Render(generation.NeighbourHood);
+        generation.UpdateGeneration();
       }
     }
   }

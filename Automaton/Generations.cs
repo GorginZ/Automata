@@ -9,7 +9,7 @@ namespace Automaton
       NeighbourHood = cells;
       _rules = rules;
     }
-    public int[] NextGen()
+    private int[] NextGen()
     {
       var nextGeneration = new int[NeighbourHood.GetLength(0)];
       for (int i = 0; i < NeighbourHood.GetLength(0); i++)
@@ -21,6 +21,10 @@ namespace Automaton
         nextGeneration[i] = _rules.CellValueForNextGen(left, self, right);
       }
       return nextGeneration;
+    }
+    public void UpdateGeneration()
+    {
+      NeighbourHood = NextGen();
     }
   }
 }
