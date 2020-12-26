@@ -17,7 +17,7 @@ namespace Automaton
 
       for (int i = 0; i < neighbourHood.GetLength(0); i++)
       {
-        var stringValue = i == 1 ? "X" : " ";
+        var stringValue = neighbourHood[i] == 1 ? "X" : " ";
         visualizeGeneration.Append(stringValue);
       }
       return visualizeGeneration.ToString();
