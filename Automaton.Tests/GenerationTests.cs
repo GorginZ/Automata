@@ -47,6 +47,45 @@ namespace Automaton.Tests
 
       Assert.Equal(" X     ", ConsoleRenderer.NeighbourHoodToString(actualNextGenThree));
     }
+   // "   X   "
+   // "XXX  XX"
+   // "    X  "
+   // "XXXX  X"
+   // "     X "
+   // "XXXXX  " 
+    [Fact]
+    public void ShouldProduceRuleThreePatterns()
+    {
+      var rule = new RuleThree();
+      var cells = new int[] { 0, 0, 0, 1, 0, 0, 0 };
+      var generation = new Generations(cells, rule);
+      Assert.Equal("   X   ", ConsoleRenderer.NeighbourHoodToString(generation.NeighbourHood));
+
+      generation.UpdateGeneration();
+      var actualNextGen = generation.NeighbourHood;
+
+      Assert.Equal("XXX  XX", ConsoleRenderer.NeighbourHoodToString(actualNextGen));
+
+      generation.UpdateGeneration();
+      var actualNextGenThree = generation.NeighbourHood;
+
+      Assert.Equal("    X  ", ConsoleRenderer.NeighbourHoodToString(actualNextGenThree));
+
+      generation.UpdateGeneration();
+      var actualNextGenFour = generation.NeighbourHood;
+
+      Assert.Equal("XXXX  X", ConsoleRenderer.NeighbourHoodToString(actualNextGenFour));
+
+      generation.UpdateGeneration();
+      var actualNextGenFive = generation.NeighbourHood;
+
+      Assert.Equal("     X ", ConsoleRenderer.NeighbourHoodToString(actualNextGenFive));
+
+      generation.UpdateGeneration();
+      var actualNextGenSix = generation.NeighbourHood;
+
+      Assert.Equal("XXXXX  ", ConsoleRenderer.NeighbourHoodToString(actualNextGenSix));
+    }
 
   }
 }
