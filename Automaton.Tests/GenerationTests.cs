@@ -8,7 +8,7 @@ namespace Automaton.Tests
     //"XX   XX"
     //"   X   "
     [Fact]
-    public void ShouldAppplyRuleOneRules()
+    public void ShouldOsillateRuleOnePattern()
     {
       var rule = new RuleOne();
       var cells = new int[] { 0, 0, 0, 1, 0, 0, 0 };
@@ -21,7 +21,6 @@ namespace Automaton.Tests
       Assert.Equal("XX   XX", ConsoleRenderer.NeighbourHoodToString(actualNextGen));
 
       generation.UpdateGeneration();
-      var actualNextGenThree = generation.NeighbourHood;
 
       Assert.Equal("   X   ", ConsoleRenderer.NeighbourHoodToString(generation.NeighbourHood));
     }
@@ -47,6 +46,7 @@ namespace Automaton.Tests
 
       Assert.Equal(" X     ", ConsoleRenderer.NeighbourHoodToString(actualNextGenThree));
     }
+
    // "   X   "
    // "XXX  XX"
    // "    X  "
@@ -87,5 +87,25 @@ namespace Automaton.Tests
       Assert.Equal("XXXXX  ", ConsoleRenderer.NeighbourHoodToString(actualNextGenSix));
     }
 
+//"   X   "
+//"   X   "
+//"   X   "
+    [Fact]
+    public void ShouldProduceRuleFourPattern()
+    {
+      var rule = new RuleFour();
+      var cells = new int[] { 0, 0, 0, 1, 0, 0, 0 };
+      var generation = new Generations(cells, rule);
+      Assert.Equal("   X   ", ConsoleRenderer.NeighbourHoodToString(generation.NeighbourHood));
+
+      generation.UpdateGeneration();
+      var actualNextGen = generation.NeighbourHood;
+
+      Assert.Equal("   X   ", ConsoleRenderer.NeighbourHoodToString(actualNextGen));
+
+      generation.UpdateGeneration();
+
+      Assert.Equal("   X   ", ConsoleRenderer.NeighbourHoodToString(generation.NeighbourHood));
+    }
   }
 }
