@@ -107,5 +107,30 @@ namespace Automaton.Tests
 
       Assert.Equal("   X   ", ConsoleRenderer.NeighbourHoodToString(generation.NeighbourHood));
     }
+    //rule 5
+    // "   X   "
+    // "XX X XX"
+    // "   X   "
+    // "XX X XX"
+    [Fact]
+    public void ShouldOsillateRuleFivePattern()
+    {
+      var rule = new RuleFive();
+      var cells = new int[] { 0, 0, 0, 1, 0, 0, 0 };
+      var generation = new Generations(cells, rule);
+      Assert.Equal("   X   ", ConsoleRenderer.NeighbourHoodToString(generation.NeighbourHood));
+
+      generation.UpdateGeneration();
+
+      Assert.Equal("XX X XX", ConsoleRenderer.NeighbourHoodToString(generation.NeighbourHood));
+
+      generation.UpdateGeneration();
+
+      Assert.Equal("   X   ", ConsoleRenderer.NeighbourHoodToString(generation.NeighbourHood));
+      generation.UpdateGeneration();
+
+      Assert.Equal("XX X XX", ConsoleRenderer.NeighbourHoodToString(generation.NeighbourHood));
+    }
+
   }
 }
