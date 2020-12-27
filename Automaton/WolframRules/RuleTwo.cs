@@ -1,10 +1,17 @@
-namespace Automaton.WolframRules
+namespace Automaton
 {
   public class RuleTwo : IRules
   {
     public int CellValueForNextGen(int left, int self, int right)
     {
-      throw new System.NotImplementedException();
+      if (!(left == 1 && self == 1) && right == 1)
+      {
+        return 1;
+      }
+      else
+      {
+        return 0;
+      }
     }
   }
 }
