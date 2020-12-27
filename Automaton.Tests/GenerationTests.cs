@@ -25,9 +25,9 @@ namespace Automaton.Tests
       Assert.Equal("   X   ", ConsoleRenderer.NeighbourHoodToString(generation.NeighbourHood));
     }
 
-   //"   X   "
-   //"  X    "
-   //" X     " 
+    //"   X   "
+    //"  X    "
+    //" X     " 
     [Fact]
     public void ShouldAppplyRuleTwoRules()
     {
@@ -47,12 +47,12 @@ namespace Automaton.Tests
       Assert.Equal(" X     ", ConsoleRenderer.NeighbourHoodToString(actualNextGenThree));
     }
 
-   // "   X   "
-   // "XXX  XX"
-   // "    X  "
-   // "XXXX  X"
-   // "     X "
-   // "XXXXX  " 
+    // "   X   "
+    // "XXX  XX"
+    // "    X  "
+    // "XXXX  X"
+    // "     X "
+    // "XXXXX  " 
     [Fact]
     public void ShouldProduceRuleThreePatterns()
     {
@@ -87,9 +87,9 @@ namespace Automaton.Tests
       Assert.Equal("XXXXX  ", ConsoleRenderer.NeighbourHoodToString(actualNextGenSix));
     }
 
-//"   X   "
-//"   X   "
-//"   X   "
+    //"   X   "
+    //"   X   "
+    //"   X   "
     [Fact]
     public void ShouldProduceRuleFourPattern()
     {
@@ -131,6 +131,5 @@ namespace Automaton.Tests
 
       Assert.Equal("XX X XX", ConsoleRenderer.NeighbourHoodToString(generation.NeighbourHood));
     }
-
   }
 }

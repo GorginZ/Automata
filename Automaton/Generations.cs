@@ -9,19 +9,35 @@ namespace Automaton
       NeighbourHood = cells;
       _rules = rules;
     }
+    //wrapping??
+    // private int[] NextGen()
+    // {
+    //   var nextGeneration = new int[NeighbourHood.GetLength(0)];
+    //   for (int i = 0; i < NeighbourHood.GetLength(0); i++)
+    //   {
+    //     var left = i == 0 ? (NeighbourHood[NeighbourHood.GetLength(0) - 1]) : NeighbourHood[i - 1];
+    //     var self = NeighbourHood[i];
+    //     var right = i == (NeighbourHood.GetLength(0) - 1) ? NeighbourHood[0] : NeighbourHood[i + 1];
+
+    //     nextGeneration[i] = _rules.CellValueForNextGen(left, self, right);
+    //   }
+    //   return nextGeneration;
+    // }
+
     private int[] NextGen()
     {
       var nextGeneration = new int[NeighbourHood.GetLength(0)];
-      for (int i = 0; i < NeighbourHood.GetLength(0); i++)
+      for (int i = 1; i < NeighbourHood.GetLength(0) - 1; i++)
       {
-        var left = i == 0 ? (NeighbourHood[NeighbourHood.GetLength(0) - 1]) : NeighbourHood[i - 1];
+        var left = NeighbourHood[i - 1];
         var self = NeighbourHood[i];
-        var right = i == (NeighbourHood.GetLength(0) - 1) ? NeighbourHood[0] : NeighbourHood[i + 1];
+        var right = NeighbourHood[i + 1];
 
         nextGeneration[i] = _rules.CellValueForNextGen(left, self, right);
       }
       return nextGeneration;
     }
+
     public void UpdateGeneration()
     {
       NeighbourHood = NextGen();
